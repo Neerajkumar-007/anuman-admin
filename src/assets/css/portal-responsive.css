@@ -1,0 +1,153 @@
+@media (max-width:767px){
+    .search_pull_right {
+        display: flex;
+        align-items: center;
+        flex-flow: inherit;
+        justify-content: inherit;
+    }
+    .bids_inner_bten {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 0px;
+        flex-wrap: wrap-reverse;
+    }
+    .seeting_iocin img {
+       
+     margin-right: inherit;
+    }
+    a.navbar-brand img {
+        width: auto;
+        height: 40px;
+    }
+
+    .tabs_header button.nav-link {
+        width: 160px;
+    }
+    .tabs_header ul {
+        width: 100%;
+      
+    }
+    .search_fileld {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    form.app-search.d-lg-block {
+        min-width: 100%;
+        
+    }
+    .tabs_header {
+        margin-top: 20px;
+    }
+    .navbar-toggler {
+        background-color: white;
+    }
+
+    .logou_t {
+        margin-bottom: 25px;
+    }
+
+    .text_ls.text_end {
+         text-align: inherit; 
+        
+    }
+    .home_back {
+        padding: 15px 0px;
+    }
+    footer {
+        text-align: center;
+    }
+
+    .flitr_inner_wrap .form-select {
+    
+        min-width: 100px;
+      
+    }
+
+    .reset_btn {
+        margin-bottom: 20px;
+    }
+
+    span.top_btn {
+        margin-top: 15px;
+    }
+
+    .ttitle_inner_flex {
+     
+        flex-direction: column-reverse;
+    }
+    .sign_in .card-body {
+        padding: 1.25em;
+    }
+
+    .wrapper_login {
+       height: inherit;
+    }
+
+    .sign_in .card-body {
+        padding: 1.25em;
+    }
+
+    .signup_wrapper {
+       
+         padding: inherit;
+    }
+    .sign_in {
+       height: inherit;
+    }
+
+    .submit_form {
+        height: inherit;
+    }
+
+    .navbar_set {
+         position: relative; 
+         margin-bottom: 50px;
+      
+    }
+
+    .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}
+
+@media (min-width:1600px){
+    .wrside_p {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        color: #1A1A1A;
+    }
+
+    .ttitle_inner_flex p {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        color: #1A1A1A;
+    }
+    .ttitle_inner_flex span {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        color: #2B3674;
+    }
+}
+
+@media (min-width: 576px){
+    .modal-dialog-large {
+        max-width: 70% !important;
+        margin: 1.75rem auto;
+    }
+}

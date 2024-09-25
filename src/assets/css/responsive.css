@@ -1,0 +1,1587 @@
+@media (min-width: 768px) and (max-width: 991px) {
+    /* .sidebar_content .collapse:not(.show) {
+        display: block;
+    }
+
+    .sidebar_content.navbar-light .navbar-toggler {
+        display: none;
+    } */
+    .sidebar_content .collapse:not(.show) {
+        display: none;
+    }
+
+    .sidebar_content.navbar-light .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-expand-lg .navbar-toggler {
+        display: block !important;
+    }
+}
+
+
+
+
+
+@media (max-width:1800px) {
+    .sidebar_content {
+        background: #FFFFFF;
+        /* padding: 60px 75px; */
+    }
+
+
+}
+@media (min-width: 992px){
+    .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+
+      .img-upload-input-xray {
+        background: #ede9e9;
+        position: absolute;
+        width: 140px;
+        height: 122px;
+        left: 12% !important;
+        transform: translate(-53%,282%);
+        opacity: 0;
+        cursor: pointer;
+        top: 0px;
+        border-radius: 50px;
+    }
+}
+
+
+
+
+
+@media (max-width:1600px) {
+    .sidebar_content {
+        background: #FFFFFF;
+        /* padding: 60px 45px; */
+    }
+
+
+
+    tr.box_prop td p {
+        padding: 10px;
+    }
+    .overflow_table td p {
+        height: 55px;
+    }
+    ul.sidebar_tabs li a {
+
+        width: 106px;
+        height: 106px;
+    }
+  
+}
+
+@media (max-width:1399px) {
+    .sidebar_content {
+        padding: 0;
+    }
+
+    .desc_area {
+        padding: 20px 10px;
+    }
+
+    .ques_detail-inner {
+        /* flex-direction: column;
+        align-items: flex-start !important; */
+        padding: 7px;
+    }
+
+    .options_part ul {
+        margin: 10px 0 0 0;
+    }
+
+    .questions_part {
+        padding: 15px 16px 22px;
+    }
+
+    .banner-img {
+        height: unset !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    .container_inner_width {
+        padding: 0 0 0 40px;
+    }
+
+    .banner-content {
+        justify-content: inherit;
+        padding: 190px 0;
+        height: unset;
+    }
+
+    tr.box_prop td p {
+        padding: 10px 3px 10px 4px;
+    }
+
+    .advertisement_info {
+        top: 20px;
+    }
+
+    .date-picker input[type="date"] {
+        margin: 6px 0 6px 6px;
+    }
+
+    /* .account_home tr.box_prop td p {
+        font-size: 10px;
+    } */
+
+    .sign_in {
+        max-width: 390px;
+    }
+
+    .sign_in .card-body {
+        padding: 20px 37px 20px;
+    }
+
+    .consultation_table table.table tr td:nth-child(3) {
+        width: 31%;
+    }
+
+    .consultation_table table.table tr td:first-child {
+        width: 25%;
+    }
+
+    .consultation_table table.table tr td:last-child {
+        width: 33%;
+    }
+
+    tr.box_prop p {
+        font-size: 11px;
+    }
+
+    ul.sidebar_tabs li a {
+        width: 85px;
+        height: 85px;
+    }
+
+    .sidebar_tabs li span {
+        font-size: 11px;
+    }
+
+    ul.sidebar_tabs li a {
+        width: 91px;
+        height: 91px;
+    }
+
+    .sidebar_tabs li img {
+        width: 28px;
+        height: 28px;
+        margin: 5px auto 0;
+    }
+
+    .blog_banner .container_inner_width {
+        padding: 0 0 0 190px;
+    }
+
+    .jaw_ques_detail-inner {
+
+        padding: 30px 20px;
+    }
+    .h-400.cavity_box {
+        height: 600px !important;
+    }
+    .PreventionEeducation .banner-content {
+        justify-content: center;
+        padding: 190px 0;
+        height: 100%;
+    }
+    .tmd_page .banner-content {
+        justify-content: center;
+        padding: 190px 0;
+        height: 100%;
+    }
+    .banner-img2 .banner-content{
+        justify-content: center;
+        padding: 190px 0;
+        height: 100%;
+    }
+    .gum-disease .banner-content{
+        justify-content: center;
+        padding: 190px 0;
+        height: 100%;
+    }
+   
+   
+    
+}
+
+@media (max-width:1300px) {
+    ul.sidebar_tabs li a {
+        width: 82px;
+        height: 82px;
+    }
+    .pres_width {
+        width: 335px;
+    }
+    .history_ques {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .history_ques h6 {
+      
+        line-height: 19px;
+        font-size: 13px;
+    }
+   
+}
+
+@media (max-width:1199px) {
+
+    .show-img-profile {
+        width: 80px;
+        height: 80px;
+    }
+
+    .img-upload-input {
+        width: 80px;
+        height: 80px;
+    }
+
+    .desc_area {
+        padding: 20px 0;
+    }
+
+    .options_part ul li {
+        margin: 0 0 0 6px;
+    }
+
+    .ad-title {
+        padding: 23px 15px;
+    }
+
+    /* .advertisement_info {
+        width: 200px;
+    } */
+
+    tr.box_prop td p {
+        padding: 10px 2px;
+        font-size: 10px;
+    }
+
+    .number {
+        top: 32%;
+    }
+
+    .section-divide.risk_factors .p-185 {
+        padding-left: 0;
+    }
+
+    .inner_padding {
+        padding: 18px 10px 18px;
+    }
+
+  
+
+    .account_home tr.box_prop td p {
+        font-size: 12px;
+    }
+
+    .card.med_card {
+        margin: 25px 0 0 0;
+    }
+
+    .right_chat {
+        max-width: 320px;
+    }
+
+    .left_chat {
+        max-width: 320px;
+    }
+
+    section.main_content_wrapper {
+        height: 100%;
+    }
+
+
+    ul.sidebar_tabs li a {
+        width: 75px;
+        height: 75px;
+    }
+
+    .sidebar_tabs li span {
+        margin: 9px 0 0 0;
+    }
+
+    .sidebar_tabs li span {
+        font-size: 10px;
+    }
+    .treatment_detail.h-400 {
+        height: 600px !important;
+    }
+    .treatment_detail {
+        padding: 18px;
+    }
+    .treatment-prevention {
+        padding: 18px;
+    }
+    .jaw_symptom_li{
+        width: 45%;
+    }
+    .same-width-btn {
+        width: 33% !important;
+    }
+    .option-choose li {
+        width: 31%;
+        text-align: center;
+    }
+    .symptom_height {
+        height: 100% !important;
+    }
+    .disease_detail_card.reason-cards p {
+        height: 200px;
+    }
+    .disease_detail_card h3 {
+        font-size: 18px;
+    }
+    .PreventionEeducation {
+        background-position: center;
+        height: unset;
+    }
+    .gum-disease {
+        background-position: center;
+        height: unset;
+    }
+    .tmd_page{
+        background-position: center;
+        height: unset;
+    }
+    .banner-img2{
+        background-position: center;
+        height: unset;
+    }
+    .single_time li{
+        width: 15%;
+    }
+    .medical_margin {
+        margin: 0 0 10px 0 !important;
+    }
+    .box-height {
+        height: 290px;
+    }
+    .treatment_box_height {
+        height: 316px;
+    }
+    .type-box-height {
+        height: 335px;
+    }
+    .pres_width .notes {
+        height: 200px;
+    }
+  
+   
+
+}
+
+@media (max-width:1150px) {
+    ul.sidebar_tabs li a {
+        width: 65px;
+        height: 65px;
+        padding: 7px 2px;
+    }
+
+    .sidebar_tabs li img {
+        width: 20px;
+
+        height: 20px;
+
+    }
+
+    .sidebar_tabs li span {
+        font-size: 9px;
+    }
+
+    .sidebar_tabs li {
+        padding: 9px 0;
+    }
+    .disease-card-box {
+        height: 330px;
+    }
+    .irreversible_pulpitis .treatment_detail.h-400 {
+        height: 400px !important;
+    }
+    
+   
+
+}
+
+@media (max-width:991px) {
+
+    
+    .sidebar_content .navbar-toggler {
+        right: 20px;
+        top: 30px;
+        position: fixed;
+        z-index: 99999999 !important;
+        border: 0;
+    }
+    .jaw_symptom_li {
+        width: 45% !important;
+    }
+    .blck_header ul.navbar-nav li a {
+        color: #fff !important;
+    }
+
+    /* .blck_header .navbar-light .navbar-toggler-icon{
+        background-image: url(../images/menu.svg);
+    } */
+    .blck_header .btn.btn-primary.white-btn {
+        color: #1B95BC !important;
+    }
+
+    .blck_header .btn.btn-primary.white-btn:hover {
+        color: #fff !important;
+    }
+
+    /* .white_header .navbar-light .navbar-toggler-icon {
+        background-image: url(../images/menu.svg);
+    } */
+
+    .main_header .navbar-light .navbar-toggler {
+        right: 20px !important;
+        position: absolute;
+        top: 13px;
+        border: 0;
+        color: #fff;
+        box-shadow: none;
+        z-index: 5;
+    }
+
+    .main_header .navbar {
+        padding: 25px 0;
+    }
+
+    .padding_none {
+        padding: 0;
+    }
+
+    .main_header .navbar-collapse {
+        background: rgba(27, 149, 188, 0.9) !important;
+    }
+
+    .main_header ul.navbar-nav li:last-child {
+        margin: 50px 0 0 0;
+    }
+
+    .main_header .navbar-expand-lg .navbar-nav {
+        align-items: flex-start;
+    }
+
+    .main_header ul.navbar-nav li {
+        margin: 0;
+    }
+
+    .main_header .navbar-nav .nav-item {
+        align-items: flex-start;
+        display: flex;
+    }
+
+    .main_header .navbar-nav {
+        height: 400px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: #1B95BC;
+        padding: 80px 30px;
+    }
+
+    .main_header .navbar-brand {
+        padding: 0 20px;
+    }
+
+    .sidebar_tabs li span {
+        font-size: 12px;
+        line-height: 12px;
+        margin: 5px 0 0 8px;
+    }
+
+    .sidebar_tabs li img {
+        width: 25px;
+        margin: 0 auto;
+        display: block;
+        height: 25px;
+    }
+
+    .btm_ques a img {
+        width: 20px;
+    }
+
+    .btm_ques a {
+        font-size: 16px;
+    }
+
+    ul.problem_tabs {
+        display: flex;
+        width: 870px;
+    }
+
+    .overflow_prop {
+        overflow-x: scroll;
+    }
+
+    .desc_area {
+        padding: 40px 0px;
+    }
+
+    .problem_desc border-radius-prop {
+        margin: 40px 0 0 0;
+    }
+
+    .sidebar_tabs {
+        flex-direction: row !important;
+    }
+
+    .sidebar_content .navbar-collapse {
+        width: 100%;
+    }
+
+    .sidebar_tabs li {
+
+        padding: 10px 0;
+    }
+
+    .ques_detail-inner {
+        padding: 10px 10px 10px 10px;
+        margin: 10px 0;
+    }
+
+    .options_part {
+        width: 100%;
+    }
+
+    .options_part ul {
+        justify-content: space-between;
+    }
+
+    .options_part.more-options ul {
+        flex-wrap: wrap;
+    }
+
+    .options_part ul li {
+        margin: 6px 0;
+        width: 43%;
+    }
+
+    .select_option_btn {
+        max-width: unset;
+    }
+
+    .sidebar_tabs.navbar-nav .nav-link {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+
+    ul.sidebar_tabs li a {
+        width: 87px;
+        height: 87px;
+    }
+
+    ul.sidebar_tabs li a {
+        padding: 18px 11px 11px;
+    }
+
+    h3 {
+        font-size: 15px;
+        line-height: 18px;
+    }
+
+    .logo-img img {
+        max-width: 100px;
+    }
+
+    .ad-title {
+        padding: 17px 12px;
+    }
+
+    .advertisement_info {
+        width: 190px;
+        top: 40px;
+    }
+
+    .assistance .card-body {
+        padding: 14px 12px 14px;
+        width: 150px;
+    }
+
+    .team_inner_details {
+        padding: 40px 0;
+    }
+
+    section.section-divide {
+        padding: 80px 0 0 0;
+    }
+
+    .p-120 {
+        padding: 80px 0 !important;
+    }
+
+    .feature_inner {
+        flex-direction: column-reverse;
+        margin: 50px 0 0;
+    }
+
+    .blogs_details {
+        width: 1200px;
+    }
+
+    .blog_inner_part {
+        overflow-x: scroll;
+    }
+
+    .blog_inner_part ul.blogs_details li {
+        padding: 10px;
+    }
+
+    .reason-cards img {
+        width: 100%;
+    }
+
+    .reason-cards {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .number {
+        top: 45%;
+    }
+
+    .main_section_content .col-lg-4 {
+        padding: 20px;
+    }
+
+    .m-90 {
+        margin: 0 0 45px 0;
+    }
+
+    .side-img {
+        justify-content: center !important;
+        width: 100%;
+    }
+
+    .side-img img {
+        width: 100%;
+    }
+
+    .main_section_content .col-lg-6 {
+        padding: 20px;
+    }
+
+    .common_issues_inner {
+        margin: 10px 0;
+    }
+
+    .duo-buttons {
+        margin: 50px 0;
+    }
+
+    .symptom-checker h2 {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .lg_height {
+        height: 570px;
+    }
+
+    .dark-header a.nav-link {
+        color: #FFF !important;
+    }
+
+    .option-choose li {
+        margin: 0 8px;
+    }
+
+    .max-options li {
+        padding: 20px 8px 20px;
+    }
+
+    .back_btn {
+        margin: 35px 0 0 0;
+    }
+
+    .result_ready .lg_height {
+        height: 750px;
+    }
+
+    .questions_options ul {
+        justify-content: flex-start;
+    }
+
+    .questions_options ul li {
+        width: unset;
+        padding: 3px 0 3px 6px;
+        margin: 0;
+    }
+
+    .options_part input[type="search"] {
+        margin: 6px 0 6px 6px;
+    }
+
+    .large-text {
+        padding: 9px 7px !important;
+    }
+
+    .personal_info_inner .options_part.questions_options {
+        width: unset;
+    }
+
+    .upcoming_consultation {
+        margin: 25px 0 0 0;
+    }
+
+    .blogs_details.blog_scroll {
+        width: unset;
+    }
+
+    .blogs_details.blog_scroll img {
+        width: 100%;
+    }
+
+    .carousel-indicators.indicators {
+        display: flex !important;
+    }
+/* 
+    .footer-content input[type="submit"] {
+        padding: 0 6px 0 0;
+        font-size: 11px;
+    } */
+
+    .footer-content input[type="mail"] {
+        font-size: 11px;
+    }
+
+
+
+    .header_inner .white-btn {
+        font-size: 16px !important;
+        color: #1B95BC !important;
+        width: 135px;
+        padding: 13px;
+        margin: 0 0 0 15px;
+    }
+
+    .header_inner {
+        padding: 19px 8px;
+        justify-content: inherit !important;
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        justify-content: center;
+        display: flex;
+    }
+
+    ul.sidebar_tabs li a {
+        width: 100%;
+        flex-direction: row !important;
+        height: unset;
+        align-items: center;
+        padding: 10px !important;
+        display: flex;
+    }
+
+    ul.navbar-nav li {
+        width: 100%;
+    }
+
+    .sidebar_tabs li img {
+        margin: 0 10px 0 0;
+    }
+
+    .ques_detail-inner {
+        flex-wrap: wrap;
+    }
+    .carousel-indicators{
+        display: none;
+    }
+    ul.problem_tabs li a {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .h-400.cavity_box{
+        height: 450px !important;
+    }
+    .treatment_detail.h-400 {
+        height: 500px !important;
+    }
+    section.main_content_wrapper {
+        padding: 64px 0 0 0;
+    }
+    .jaw_questions_options ul {
+        justify-content: center;
+    }
+    .choose_option_content .h-40 {
+        margin: 8px;
+    }
+    .single_time li {
+        width: 22%;
+    }
+    .selected_date_text{
+        margin: 0 0 10px 0 !important;
+    }
+    .personal_info_page .select_option_btn {
+        max-width: 178px;
+        text-align: center !important;
+    }
+    .tooth-decay {
+        background-position: right;
+        height: unset;
+    }
+    .box-height {
+        height: 365px;
+    }
+    .treatment_box_height {
+        height: 405px;
+    }
+    .type-box-height {
+        height: 360px;
+    }
+    .hm-prblm-sect.problems-content h3 {
+        font-size: 22px;
+        line-height: 22px;
+    }
+    .problem_desc.margin_top_20{
+        margin: 20px 0 0 0 !important;
+    }
+    .pres_width {
+        width: 450px;
+        position: absolute;
+        left: 13px;
+        right: unset;
+        top: unset;
+    }
+    .single_blog {
+        width: 100% !important;
+        flex-direction: column;
+        overflow: unset;
+        height: unset !important;
+    }
+    .single_blog li {
+        width: 100%;
+        margin: 0 0 20px 0 !important;
+        padding: 0 !important;
+    }
+    .single_blog img {
+        width: 100% !important;
+    }
+    .ulcersImgDiv {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ques_detail_img{
+        flex-direction: column;
+        align-items: center;
+    }
+    img.ulcer_img_logged_in {
+        margin: 0 0 10px 0;
+      }
+    .ulcersImgDiv a {
+        margin: 10px 0 0 0;
+    }
+    .all_blogs_content li {
+        width: 100% !important;
+    }
+    .all_blogs_content{
+        width: unset;
+    }
+    .ques_detail_img a{
+        margin: 0 0 10px 0;
+    }
+    .ques_detail.option_margin .questions_options ul li {
+        padding: 10px 14px 0px 0;
+    }
+    .ques_detail.option_margin .ques_detail-inner {
+        padding: 15px 15px 15px 15px;
+        margin: 10px 0;
+    }
+    .tab_scroll li {
+        margin: 0 4px 4px 0 !important;
+    }
+    .tab_scroll li a {
+
+        height: 50px !important;
+    }
+    .option_margin .ques_detail_img {
+        margin-bottom: 0;
+    }
+    .topbar_signout_btn {
+        display: none;
+    }
+    .sidebar_tabs .signOut_btn_hide {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start;
+        margin: 30px 0 30px 0 !important;
+    }
+    .sidebar_content .navbar-toggler {
+        right: 20px;
+        top: 16px;
+        position: fixed;
+        z-index: 99999999 !important;
+        border: 0;
+    }
+    .irreversible_pulpitis .treatment_detail.h-400{
+        height: 500px !important;
+    }
+    .overflowScrollProp .tab_scroll{
+        height: unset !important;
+    }
+    .overflow_prop.overflowScrollProp::-webkit-scrollbar {
+        width: 0px;
+        height: 3px;
+    }
+   
+   
+}
+
+@media (max-width:767px) {
+    .trustpilot-widget{
+        padding-top: 0px !important;
+      }
+    .login_page .container,
+    .login_page .container-fluid,
+    .login_page .container-sm,
+    .login_page .container-md,
+    .login_page .container-lg,
+    .login_page .container-xl {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .btm_logo {
+        display: block !important;
+    }
+
+    .container_inner_width {
+        padding: 0 15px;
+    }
+
+    .banner-content a {
+        width: 210px;
+        height: 40px;
+        margin: 20px 0 0 0;
+    }
+
+    h1 {
+        font-size: 25px;
+        line-height: 28px;
+    }
+
+    h2 {
+        font-size: 18px;
+        line-height: 18px;
+    }
+
+    .btm_logo {
+        position: relative;
+        top: -15px;
+    }
+
+    .banner_btm {
+        top: -90px;
+        height: 52px;
+        padding: 0 20px;
+    }
+
+    .btm_logo img {
+        max-width: 180px;
+    }
+
+    .btm_ques {
+        display: none;
+    }
+
+    .header_inner {
+        padding: 19px 8px;
+        justify-content: inherit !important;
+    }
+
+    /* .header_inner img {
+        max-width: 100px;
+        width: 100%;
+    } */
+
+    .header_inner .white-btn {
+        font-size: 16px !important;
+        color: #1B95BC !important;
+        width: 135px;
+        padding: 13px;
+        margin: 0 0 0 15px;
+    }
+
+    .sidebar_content {
+        padding: 0 !important;
+    }
+
+    section.main_content_wrapper .navbar-expand-lg .navbar-collapse {
+        width: 100%;
+    }
+
+    .sidebar_tabs li {
+        width: 100%;
+        display: unset;
+        margin: 8px 0 !important;
+        padding: 0;
+    }
+
+
+    .sidebar_tabs li img {
+        display: unset;
+        margin: unset;
+    }
+
+    .questions_options ul li {
+        width: unset;
+        padding: 7px 6px 3px 0;
+        margin: 0;
+    }
+
+
+    .desc_area {
+        padding: 40px 10px;
+    }
+
+    .questions_part {
+        padding: 15px 10px 15px;
+    }
+
+    .main-title {
+        padding: 10px;
+    }
+
+    section.about-us {
+        margin: 60px 30px;
+        border-radius: 12px;
+        padding: 25px;
+    }
+
+    .logo_none {
+        display: none !important;
+    }
+
+    .about-us-title {
+        flex-direction: column-reverse;
+    }
+
+    .side_logo {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+    .side_logo img {
+        width: 50px;
+    }
+
+    .common-padding {
+        padding: 30px 0;
+    }
+
+    .learn_more_btn {
+        justify-content: center !important;
+        align-items: center;
+    }
+
+    .video_data {
+        margin: 0 30px;
+    }
+
+    .videoCoverImage img {
+        border-radius: 8px;
+    }
+
+    .features {
+        padding: 15px;
+    }
+
+    .logo-img img {
+        max-width: 65px;
+    }
+
+    .card.assistance {
+        display: none;
+    }
+
+    .advertisement_info {
+        display: none;
+    }
+
+    .main_section_title p {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .p-120 {
+        padding: 40px 0 !important;
+    }
+
+    .box_shadow {
+        box-shadow: unset;
+    }
+
+    .absolute_card {
+        background: #fff;
+        margin: -96px 20px;
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        padding: 30px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .absolute_card h2 {
+        margin: 0 0 25px 0 !important;
+    }
+
+    .absolute_card p {
+        text-align: left !important;
+    }
+
+    .feature_inner {
+        flex-direction: column-reverse;
+        margin: 130px 0 0;
+    }
+
+    .footer_iner_content_right {
+        margin: 25px 0 0 0;
+    }
+
+    .copyright {
+        margin: 15px 0 0 0;
+        text-align: center;
+    }
+
+    .footer-img {
+        text-align: center;
+    }
+
+    .card_shadow {
+        padding: 40px 15px;
+    }
+
+    .lg_height {
+        height: 440px;
+    }
+
+    .symptom-checker h2 {
+        font-size: 17px;
+        line-height: 24px;
+    }
+
+    .option-btn {
+        font-size: 12px !important;
+        padding: 6px 8px;
+    }
+
+    .option-choose li {
+        width: 40%;
+    }
+
+    .max-options li {
+        width: 49% !important;
+    }
+
+    .footer-content h3 {
+        text-align: left;
+        margin: 0 0 10px 0;
+    }
+
+    .footer-content h3 {
+        font-size: 13px;
+    }
+
+    .detail_page .card-body {
+        padding: 24px 20px;
+    }
+
+    .detail_page {
+        max-width: 360px;
+    }
+
+    /* .sidebar_content .navbar-toggler {
+        right: 20px;
+        top: 30px;
+        position: fixed;
+        z-index: 99999999 !important;
+        border: 0;
+    } */
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+        -webkit-box-shadow: 0 !important;
+    }
+
+    .single_time li {
+        font-size: 11px;
+        padding: 5px 4px;
+    }
+
+    .payment_inner_details {
+        padding: 20px;
+    }
+
+    .quantity select {
+        margin: 10px 0 0 0;
+    }
+
+ 
+    h6 {
+        font-size: 13px;
+        line-height: 14px;
+    }
+
+    .questions_options_inner .box_shadow {
+        box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .personal_info_inner .box_shadow {
+        box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .blog_title {
+        max-width: 140px;
+        padding: 17px 14px 11px;
+    }
+
+    a.light_btn {
+        padding: 12px 19px;
+    }
+
+    .wrapper_login {
+        background-position: inherit;
+        height: unset;
+    }
+
+    .navbar_set {
+        position: unset;
+    }
+    .login_page .navbar_set{
+        padding: 20px 0;
+    }
+    .sign_in .card-body {
+        padding: 30px 17px 21px;
+    }
+
+    .sign_in {
+        height: unset;
+        margin: 40px 0 0 0;
+    }
+
+    h4 {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    /* .email-insert {
+        flex-direction: column;
+    } */
+/* 
+    .email-insert input[type="mail"] {
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+        padding: 6px;
+        border-bottom: 1px solid #efefef;
+    } */
+
+    /* .footer-content input[type="submit"] {
+        border-radius: 0 0 8px 8px;
+        padding: 6px;
+    } */
+
+
+
+    header ul.navbar-nav li a {
+        color: rgb(255, 255, 255) !important;
+    }
+
+    .imgs_section {
+        padding: 0 !important;
+        flex-direction: column;
+    }
+
+    .text-style-decoration {
+        padding: 0 0 0 16px;
+    }
+
+    .ml-30 {
+        margin: 0 !important;
+    }
+
+    .img-section-row img {
+        margin: 0 0 20px 0 !important;
+    }
+
+    .img-section-row {
+        flex-direction: column;
+    }
+
+    
+    /* .diagnosis_inner img {
+        width: 100%;
+    } */
+    .login_desc {
+        margin: 40px 0 0 0;
+    }
+    .sidebar_content .collapse:not(.show) {
+        display: none;
+    }
+
+    .sidebar_content.navbar-light .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-expand-lg .navbar-toggler {
+        display: block !important;
+    }
+    .treatment_detail {
+        margin: 0 0 20px 0;
+        height: unset !important;
+        padding: 15px;
+    }
+    .treatment-prevention {
+        padding: 15px;
+    }
+    .treatment_detail.h-400 {
+        height: unset !important;
+    }
+    .h-400.cavity_box {
+        height: unset !important;
+    }
+    .jaw_symptom_li {
+        width: 100% !important;
+    }
+  
+    .choose_option_content .option-btn {
+        font-size: 16px !important;
+        padding: 13px;
+    }
+    .card-height-box {
+        height: 100% !important;
+    }
+    .choose_option_content.option-choose li {
+        width: 100%;
+        margin: 0 0 15px 0;
+    }
+    .disease_detail_card {
+        max-width: unset;
+        width: 100%;
+    }
+    .disease_detail_card.reason-cards p {
+        height: unset;
+    }
+    .result_ready .lg_height {
+        height: 100%;
+    }
+    .h-40 .option-btn {
+        height: unset;
+        width: 100% !important;
+        max-width: unset;
+    }
+    .single_time li {
+        width: 31%;
+    }
+    .account_info::after {
+        right: 10px;
+    }
+    .box_shadow.box_shadow {
+        box-shadow: 0px 2px 14px rgb(0 0 0 / 10%);
+    }
+    .gum-disease {
+        background-position: bottom;
+        height: unset;
+        background-size: cover;
+    }
+    .blog_detail_page img.card-img-top {
+        height: 400px;
+    }
+    .ulcer-options-width .options_part.questions_options ul {
+        flex-direction: column;
+    }
+    .ulcer-option-inner {
+        width: 100%;
+    }
+    .hm-prblm-sect .prblm_img {
+        justify-content: center !important;
+    }
+    section.discover {
+        padding: 50px 0 60px 0 !important;
+    }
+    .account_info {
+        padding: 16px 7px;
+    }
+    .account_info p {
+        width: 67%;
+        text-align: left;
+    }
+    .account_info h6 {
+        width: 27%;
+    }
+    .account_info .update-history {
+        margin: 0;
+        padding: 0 7px;
+    }
+    .account_info::after {
+        right: 3px;
+    }
+    .issues_main_page .main-title {
+        padding: 15px 25px;
+    }
+    .issues_main_page .prblm_inner_content {
+        padding: 25px 25px 25px;
+    }
+    .issues_sub_page .questions_part {
+        padding: 15px 25px 15px;
+    }
+    .issues_sub_page .ques_detail.option_margin .ques_detail-inner {
+        margin: 3px 0;
+    }
+    .issues_sub_page .main-title{
+        padding: 15px 25px;
+    }
+    .card_shadow_height {
+        height: 520px;
+    }
+    .card-height-small {
+        height: 370px;
+    }
+    .login_reverse {
+        flex-direction: column-reverse;
+    }
+    .scroll-hide table {
+        width: unset !important;
+    }
+    .scroll-hide.consultation_table table.table tr th:first-child {
+        width: unset !important;
+    }
+    .scroll-hide.consultation_table table.table tr th:nth-child(2){
+        width: unset !important;
+    }
+  
+
+}
+
+@media (max-width:576px) {
+    /* .result_ready .lg_height{
+        height: 100%;
+    } */
+    .overflow_table {
+        overflow-x: scroll;
+    }
+
+    .consulatation_card .table {
+        width: 600px;
+    }
+
+    .number {
+        top: 40%;
+    }
+
+    .left_chat {
+        max-width: 282px;
+    }
+
+    .right_chat {
+        max-width: 282px;
+    }
+
+    .header_inner .small_white_btn {
+        color: #1B95BC !important;
+        width: 93px;
+        padding: 13px 6px;
+        margin: 0 0 0 15px;
+        font-size: 13px !important;
+    }
+
+    .duo-buttons .white-btn {
+        max-width: 250px;
+        width: 100%;
+    }
+
+    .ml-80 {
+        margin: 0 0 0 49px;
+    }
+    .choose_option_content .option-btn {
+        font-size: 16px !important;
+        padding: 13px;
+    }
+    .max-options li {
+        width: 100% !important;
+        padding: 0 0 15px 0;
+    }
+    .same-width-btn .option-btn {
+        height: 90px;
+        max-width: unset;
+        justify-content: center;
+    }
+    .small_drk_btn_margin {
+        margin: 10px 0 0 0;
+    }
+    .single_time li {
+        width: 44%;
+    }
+    .dark_btn{
+        max-width: 130px;
+    }
+    .peronal-content-detail {
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    .img_width_set {
+        width: 100%;
+    }
+    .read_more_btn.latest_updates_btn{
+        margin: 0 5px 14px 0;
+    }
+    .read_more_btn.latest_updates_btn .light_btn {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .pres_width {
+        width: 371px;
+    }
+    table.admin-prescription tr th{
+        font-size: 11px;
+    }
+    .desc_area {
+	padding: 40px 0px;
+}
+    
+
+}
+
+
+
+@media (min-width:767px) and (max-width:1400px) {
+    ul.navbar-nav li {
+        margin: 0 15px;
+    }
+
+    ul.navbar-nav li a {
+        font-size: 15px;
+        letter-spacing: 0;
+    }
+
+
+}
+
+
+@media (min-width: 992px){
+    .topbar_right.navbar-expand-lg {
+        justify-content: space-between;
+    }
+}
+
+
