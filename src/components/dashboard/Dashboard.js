@@ -1,7 +1,17 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getDashboard } from "../../Redux/Actions/admin/adminPanel";
 import Layout from "../layout/Layout";
 import FirstRow from "./FirstRow";
+import SecondRow from "./SecondRow";
 
 export default function Dashboard() {
+  const dashboardData = useSelector((state) => state.adminPanel.dashboardData);
+  console.log(dashboardData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDashboard());
+  }, []);
   return (
     <Layout>
        <div id="layout-wrapper" className="bg-dash admin-table">
@@ -20,7 +30,9 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-    <FirstRow />
+    <FirstRow dashboardData={dashboardData?.user} />
+    <SecondRow dashboardData={dashboardData?.question}/>
+
             </div>
           </div>
         </div>

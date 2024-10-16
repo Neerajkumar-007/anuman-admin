@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Select from "react-select";
 import { useFormik } from "formik";
 import { useState } from "react";
-import { createRole } from "../../Redux/Actions/admin/adminPanel";
+import { createRole, updateRole } from "../../Redux/Actions/admin/adminPanel";
 import { useDispatch } from "react-redux";
 
-const AddRole = ({ setAddUser,onHide }) => {
+const AddRole = ({ onHide, userData }) => {
   const [selectedList, setSelectedList] = useState([]);
   const [accessList, setAccessList] = useState([]);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
+
   const sidebarList = [
     { value: "Dashboard", label: "Dashboard" },
     { value: "Members", label: "Members" },
-    { value: "Category", label: "Category" },
-    { value: "ManageAdmin", label: "Manage Admin" }
+    { value: "categories", label: "Category" },
+    { value: "adminUsers", label: "Manage Admin" },
+    { value: "contest", label: "Contest" },
   ];
+  useEffect(() => {
+    if (userData) {
+      formik.setValues({
+        title: userData.title || "",
+      });
+      setSelectedList(
+        userData.permissions.map((perm) => {
+          return sidebarList.find((item) => item.value === perm);
+        })
+      );
+      setAccessList(userData.permissions || []);
+    }
+  }, [userData]);
+
   const handleSelectSidebar = (e) => {
     setSelectedList(e);
     var dataList = e.map((item) => {
@@ -26,6 +42,7 @@ const AddRole = ({ setAddUser,onHide }) => {
       formik.setFieldError("accessList", "");
     }
   };
+
   const validate = (values) => {
     const errors = {};
     if (!values.title) {
@@ -47,22 +64,32 @@ const AddRole = ({ setAddUser,onHide }) => {
         ...values,
         permissions: accessList,
       };
+
       try {
-        await dispatch(createRole(updatedValues)).then((res)=>{
-          if(res){
-            setAddUser(false)
-          }
-        })
+        if (userData && userData._id) {
+          await dispatch(updateRole({ id: userData._id, data: updatedValues })).then((res) => {
+            if (res) {
+              onHide();
+            }
+          });
+        } else {
+          await dispatch(createRole(updatedValues)).then((res) => {
+            if (res) {
+              onHide();
+            }
+          });
+        }
       } catch (error) {
         console.log(error);
       }
     },
   });
+
   return (
     <form onSubmit={formik.handleSubmit}>
-      <Modal.Header closeButton onClick={()=>setAddUser(false)}>
+      <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Create Role
+          {userData ? "Update Role" : "Create Role"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -80,27 +107,27 @@ const AddRole = ({ setAddUser,onHide }) => {
               <p className="formik-errors">{formik.errors.title}*</p>
             ) : null}
           </div>
-          <label htmlFor="">Acess</label>
+          <label htmlFor="">Access</label>
           <Select
-           className="form-group mb-3 "
+            className="form-group mb-3"
             isMulti
             options={sidebarList}
             onChange={handleSelectSidebar}
             value={selectedList}
             menuPortalTarget={document.body}
             styles={{
-                menuPortal: base => ({ ...base, zIndex: 1050 }),
-                menu: base => ({
-                  ...base,
-                  zIndex: 1050,
-                  maxHeight: '200px',
-                  overflowY: 'auto'
-                }),
-                control: base => ({
-                  ...base,
-                  minHeight: '38px'
-                })
-              }}
+              menuPortal: (base) => ({ ...base, zIndex: 1050 }),
+              menu: (base) => ({
+                ...base,
+                zIndex: 1050,
+                maxHeight: "200px",
+                overflowY: "auto",
+              }),
+              control: (base) => ({
+                ...base,
+                minHeight: "38px",
+              }),
+            }}
           />
           {formik.errors.accessList ? (
             <p className="formik-errors">{formik.errors.accessList}*</p>
@@ -109,21 +136,21 @@ const AddRole = ({ setAddUser,onHide }) => {
       </Modal.Body>
 
       <Modal.Footer className="justify-content-between">
-        <div className="btn_submit ">
+        <div className="btn_submit">
           <button
-            onClick={()=>setAddUser(false)}
+            onClick={() => onHide()}
             type="button"
             className="btn btn-primary btn-custom btn-lg w-100 submit_btn confirmation_btn"
           >
-            cancel
+            Cancel
           </button>
-          </div>
-          <div className="btn_submit ">
+        </div>
+        <div className="btn_submit">
           <button
             type="submit"
             className="btn btn-primary btn-custom btn-lg w-100 submit_btn confirmation_btn"
           >
-            submit
+           { userData?"Update":"Submit"}
           </button>
         </div>
       </Modal.Footer>

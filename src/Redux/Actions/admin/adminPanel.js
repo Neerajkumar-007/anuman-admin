@@ -18,7 +18,6 @@ export const deleteAdmins = createAsyncThunk("deleteAdmins", async (id, thunkApi
   return response.data;
 });
 export const updateAdmin = createAsyncThunk("updateAdmin", async ({ id, data }, thunkApi) => {
-  console.log(data);
   const response = await api.post(`/admin/editUser?id=${id}`,data);
   return response.data;
 });
@@ -37,6 +36,14 @@ export const getrolesList = createAsyncThunk(
     return response.data;
   }
 );
+export const blockRoles = createAsyncThunk("blockRoles", async ({ id, data }, thunkApi) => {
+  const response = await api.patch(`/role/updateBlockStatus?id=${id}`,data);
+  return response.data;
+});
+export const updateRole = createAsyncThunk("updateRole", async ({ id, data }, thunkApi) => {
+  const response = await api.patch(`/role/updateRole?id=${id}`,data);
+  return response.data;
+});
 // category
 export const getCategoryList = createAsyncThunk(
   "getCategoryList",
@@ -56,6 +63,11 @@ export const createCategory = createAsyncThunk(
     return response.data;
   }
 );
+export const updateCategory = createAsyncThunk("updateCategory", async ({ id, data }, thunkApi) => {
+  console.log(data);
+  const response = await api.patch(`/category/updateCategory?id=${id}`,data);
+  return response.data;
+});
 // questions
 export const getCategoryQuestion = createAsyncThunk(
   "getCategoryQuestion",
@@ -73,6 +85,37 @@ export const createQuestion = createAsyncThunk(
   "createQuestion",
   async (data, thunkApi) => {
     const response = await api.post("/questions/addQuestion", data);
+    return response.data;
+  }
+);
+export const updateQuestion = createAsyncThunk("updateQuestion", async ({ id, data }, thunkApi) => {
+  const response = await api.patch(`/questions/updateQuestion?id=${id}`,data);
+  return response.data;
+});
+// Dashboard
+export const getDashboard = createAsyncThunk("getDashboard", async (thunkApi) => {
+  const response = await api.get("/dashboard/getDetails");
+  return response.data;
+});
+// contest
+export const getContests = createAsyncThunk(
+  "getContests",
+  async (data, thunkApi) => {
+    const response = await api.post("/contest/getContestByStatus", data);
+    return response.data;
+  }
+);
+export const createContest = createAsyncThunk(
+  "createContest",
+  async (data, thunkApi) => {
+    const response = await api.post("/contest/createContest", data);
+    return response.data;
+  }
+);
+export const getContestRanks = createAsyncThunk(
+  "getContestRanks",
+  async (id, thunkApi) => {
+    const response = await api.get(`/contest/getContestById?id=${id}`);
     return response.data;
   }
 );

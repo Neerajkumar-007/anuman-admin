@@ -1,41 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { createCategory } from "../../Redux/Actions/admin/adminPanel";
-const CreateCategory = ({ setAddUser, onHide }) => {
+import { createCategory, updateCategory,getCategoryList } from "../../Redux/Actions/admin/adminPanel";
+
+const CreateCategory = ({ onHide, categoryData }) => {
   const dispatch = useDispatch();
   const [iconPreview, setIconPreview] = useState(null);
+
+  useEffect(() => {
+    if (categoryData && categoryData.img) {
+      setIconPreview(categoryData.img);
+    }
+  }, [categoryData]);
+
   const validate = (values) => {
     const errors = {};
     if (!values.name) {
       errors.name = "Required";
     }
-    if (!values.icon) {
-        errors.icon = "Required";
-      }
-  
+    if (!values.icon && !categoryData) {
+      errors.icon = "Required";
+    }
     return errors;
   };
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      name: categoryData?.title || "",
       icon: null,
     },
+    enableReinitialize: true,
     validate,
     onSubmit: async (values) => {
-        const formData = new FormData();
-        formData.append('title', values.name);
-        if (values.icon) {
-          formData.append('img', values.icon);
-        }
+      const formData = new FormData();
+      formData.append("title", values.name);
+      if (values.icon) {
+        formData.append("img", values.icon);
+      }
+
       try {
-        dispatch(createCategory(formData)).then((res) => {
-          if (res.payload.success) {
-            onHide();
-          }
-        })
+        if (categoryData) {
+          dispatch(updateCategory({id:categoryData._id, data:formData})).then((res) => {
+            if (res.payload.category) {
+              onHide();
+              dispatch(getCategoryList())
+            }
+          });
+        } else {
+          dispatch(createCategory(formData)).then((res) => {
+            if (res.payload.success) {
+              onHide();
+            }
+          });
+        }
       } catch (error) {
         console.log(error);
       }
@@ -47,13 +65,14 @@ const CreateCategory = ({ setAddUser, onHide }) => {
     if (file) {
       formik.setFieldValue("icon", file);
       setIconPreview(URL.createObjectURL(file));
+    }
   };
-}
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Create Category
+          {categoryData ? "Update Category" : "Create Category"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -73,7 +92,7 @@ const CreateCategory = ({ setAddUser, onHide }) => {
           </div>
           <label htmlFor="">Icon</label>
           <div className="form-group mb-3">
-          <input
+            <input
               type="file"
               className="form-control"
               id="icon"
@@ -81,7 +100,7 @@ const CreateCategory = ({ setAddUser, onHide }) => {
               onChange={handleFileChange}
               accept="image/*"
             />
-             {iconPreview && (
+            {iconPreview && (
               <div className="icon-preview">
                 <img
                   src={iconPreview}
@@ -98,12 +117,12 @@ const CreateCategory = ({ setAddUser, onHide }) => {
       </Modal.Body>
 
       <Modal.Footer>
-        <div className="btn_submit ">
+        <div className="btn_submit">
           <button
             type="submit"
             className="btn btn-primary btn-custom btn-lg w-100 submit_btn confirmation_btn"
           >
-            Submit
+            {categoryData ? "Update" : "Submit"}
           </button>
         </div>
       </Modal.Footer>

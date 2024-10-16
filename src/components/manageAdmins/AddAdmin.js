@@ -3,8 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { createAdmin, getrolesList, updateAdmin } from "../../Redux/Actions/admin/adminPanel";
-const AddAdmin = ({ setAddUser,onHide,userData }) => {
-  console.log(userData);
+const AddAdmin = ({onHide,userData }) => {
   const [loading, setLoading] = useState(false);
   const roleData=useSelector((state)=>state.adminPanel.roles)
   const dispatch = useDispatch();
@@ -54,8 +53,7 @@ const AddAdmin = ({ setAddUser,onHide,userData }) => {
       try {
         if (userData) {
           dispatch(updateAdmin({ id: userData._id, data: formValues })).then((res) => {
-            console.log(res);
-            if (res.payload.data) {
+            if (res.payload.user) {
               onHide();
             }
           });
@@ -126,7 +124,7 @@ const AddAdmin = ({ setAddUser,onHide,userData }) => {
                         return <option value={item?._id}>{item?.title}</option>;
                       })}
             </select>
-            <div className="btn_submit add_btn">
+            {/* <div className="btn_submit add_btn">
               <button
                 type="button"
                 className="btn btn-primary btn-custom btn-lg w-100 submit_btn confirmation_btn"
@@ -134,7 +132,7 @@ const AddAdmin = ({ setAddUser,onHide,userData }) => {
               >
                 Add +
               </button>
-            </div>
+            </div> */}
             {formik.errors.role ? (
               <p className="formik-errors">{formik.errors.role}*</p>
             ) : null}

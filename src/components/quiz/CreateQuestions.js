@@ -1,23 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
-import { createQuestion } from "../../Redux/Actions/admin/adminPanel";
+import { createQuestion, getCategoryQuestion, updateQuestion } from "../../Redux/Actions/admin/adminPanel"; // Assuming updateQuestion is the update API call
 
-const CreateQuestions = ({catId,onHide}) => {
-  const dispatch = useDispatch()
-  const [contentData,setContentData]=useState()
+const CreateQuestions = ({ catId, onHide, quesData }) => {
+  const dispatch = useDispatch();
+  const [contentData, setContentData] = useState(null);
   const [questions, setQuestions] = useState([
     {
-      title: "",
-      type: "text",
-      categoryId: catId,
-      options: ["", "", "", ""],
-      correctOption: 1,
-      content: null,
+      title: quesData?.title || "",
+      type: quesData?.type || "text",
+      categoryId:quesData.categoryId||catId,
+      options: quesData?.options || ["", "", "", ""],
+      correctOption: quesData?.correctOption || 1,
+      content: quesData?.contentUrl || null,
     },
   ]);
+
+  useEffect(() => {
+    if (quesData && quesData.contentUrl) {
+      setContentData(quesData.contentUrl);
+    }
+  }, [quesData]);
+
   const validationSchema = Yup.object({
     questions: Yup.array().of(
       Yup.object().shape({
@@ -25,24 +32,16 @@ const CreateQuestions = ({catId,onHide}) => {
         options: Yup.array()
           .of(Yup.string().required("Option is required"))
           .min(4, "You must provide at least 4 options"),
-        correctOption: Yup.number().min(0, "Select the correct option"),
+        correctOption: Yup.number().min(1, "Select the correct option"),
       })
     ),
   });
 
-  // const handleMediaChange = (qIndex, e, setFieldValue) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     setContentData(file)
-  //     const mediaURL = URL.createObjectURL(file);
-  //     setFieldValue(`questions[${qIndex}].content`, mediaURL);
-  //   }
-  // };
   const handleMediaChange = (qIndex, e, setFieldValue) => {
     const file = e.target.files[0];
     const imageMaxSize = 500 * 1024;
     const videoMaxSize = 10 * 1024 * 1024;
-  
+
     if (file) {
       const fileSize = file.size;
       if (questions[qIndex].type === "image" && fileSize > imageMaxSize) {
@@ -50,36 +49,45 @@ const CreateQuestions = ({catId,onHide}) => {
         e.target.value = null;
         return;
       }
-  
+
       if (questions[qIndex].type === "video" && fileSize > videoMaxSize) {
         alert("Video size should not exceed 10MB.");
         e.target.value = null;
         return;
       }
-  
+
       setContentData(file);
       const mediaURL = URL.createObjectURL(file);
       setFieldValue(`questions[${qIndex}].content`, mediaURL);
     }
   };
-  
+
   const handleSubmit = (values) => {
-     const formData = new FormData();
-        formData.append('title', values.questions[0].title);
-        formData.append('type', values.questions[0].type);
-        formData.append('categoryId', values.questions[0].categoryId);
-        values.questions[0].options.forEach((option, index) => {
-          formData.append(`options[${index}]`, option);
-        });
-        formData.append('correctOption', values.questions[0].correctOption);
-        if (contentData) {
-          formData.append('content', contentData);
+    const formData = new FormData();
+    formData.append("title", values.questions[0].title);
+    formData.append("type", values.questions[0].type);
+    formData.append("categoryId", values.questions[0].categoryId);
+    values.questions[0].options.forEach((option, index) => {
+      formData.append(`options[${index}]`, option);
+    });
+    formData.append("correctOption", values.questions[0].correctOption);
+    if (contentData) {
+      formData.append("content", contentData);
+    }
+    if (quesData) {
+      dispatch(updateQuestion({id:quesData._id,data:formData})).then((res) => {
+        if (res.payload) {
+          dispatch(getCategoryQuestion(catId))
+          onHide(); 
         }
-    dispatch(createQuestion(formData)).then((res)=>{
-      if(res.payload){
-        onHide()
-      }
-    })
+      });
+    } else {
+      dispatch(createQuestion(formData)).then((res) => {
+        if (res.payload) {
+          onHide();
+        }
+      });
+    }
   };
 
   return (
@@ -92,7 +100,7 @@ const CreateQuestions = ({catId,onHide}) => {
         <Form>
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Add Question
+              {quesData ? "Update Question" : "Add Question"}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -152,21 +160,21 @@ const CreateQuestions = ({catId,onHide}) => {
                     </>
                   )}
                   <div>
-                  <label htmlFor={`questions[${qIndex}].title`}>
-                    Question Name
-                  </label>
-                  <div className="form-group mb-3">
-                    <Field
-                      name={`questions[${qIndex}].title`}
-                      className="form-control"
-                      placeholder="Enter question"
-                    />
-                    <ErrorMessage
-                      name={`questions[${qIndex}].title`}
-                      component="div"
-                      className="error"
-                    />
-                  </div>
+                    <label htmlFor={`questions[${qIndex}].title`}>
+                      Question Name
+                    </label>
+                    <div className="form-group mb-3">
+                      <Field
+                        name={`questions[${qIndex}].title`}
+                        className="form-control"
+                        placeholder="Enter question"
+                      />
+                      <ErrorMessage
+                        name={`questions[${qIndex}].title`}
+                        component="div"
+                        className="error"
+                      />
+                    </div>
                   </div>
                   {q.options.map((option, oIndex) => (
                     <div key={oIndex} style={{ marginTop: "10px" }}>
@@ -177,18 +185,18 @@ const CreateQuestions = ({catId,onHide}) => {
                       />
                       <Field
                         type="radio"
-                        name={`questions[${qIndex+1}].correctOption`}
-                        value={oIndex+1}
-                        checked={values.questions[qIndex].correctOption === oIndex+1}
+                        name={`questions[${qIndex}].correctOption`}
+                        value={oIndex + 1}
+                        checked={values.questions[qIndex].correctOption === oIndex + 1}
                         onChange={() =>
-                          setFieldValue(`questions[${qIndex}].correctOption`, oIndex+1)
+                          setFieldValue(`questions[${qIndex}].correctOption`, oIndex + 1)
                         }
                       />
-                        <ErrorMessage
-                          name={`questions[${qIndex}].options[${oIndex}]`}
-                          component="div"
-                          className="error"
-                        />
+                      <ErrorMessage
+                        name={`questions[${qIndex}].options[${oIndex}]`}
+                        component="div"
+                        className="error"
+                      />
                     </div>
                   ))}
                   <ErrorMessage
@@ -206,6 +214,7 @@ const CreateQuestions = ({catId,onHide}) => {
               <button
                 type="button"
                 className="btn btn-primary btn-custom btn-lg w-100 submit_btn confirmation_btn"
+                onClick={onHide}
               >
                 Cancel
               </button>
@@ -215,7 +224,7 @@ const CreateQuestions = ({catId,onHide}) => {
                 type="submit"
                 className="btn btn-primary btn-custom btn-lg w-100 submit_btn confirmation_btn"
               >
-                Submit
+                {quesData ? "Update" : "Submit"}
               </button>
             </div>
           </Modal.Footer>

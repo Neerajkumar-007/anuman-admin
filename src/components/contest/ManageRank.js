@@ -1,36 +1,39 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../layout/Layout";
-import { Link, useNavigate } from "react-router-dom";
-import CreateQuizModal from "./CreateQuizModal";
-import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategoryList } from "../../Redux/Actions/admin/adminPanel";
-import DeleteModal from "../modals/DeleteModal";
-const ManageCategory = () => {
-  const categoryList = useSelector((state) => state.adminPanel?.categoryList);
+import { Link, useNavigate, useParams } from "react-router-dom";
+// import CreateQuizModal from "./CreateQuizModal";
+import ReactPaginate from "react-paginate";
+import { getCategoryQuestion, getContestRanks } from "../../Redux/Actions/admin/adminPanel";
+// import DeleteModal from "../modals/DeleteModal";
+const ManageRank = () => {
+  const ranksList = useSelector((state) => state.adminPanel?.rankData);
+  console.log(ranksList,"ranksList")
+  // const categoryData = useSelector((state) => state.adminPanel?.categoryData);
+  // const categoryQuestions = useSelector((state) => state.adminPanel.categoryQuestions);
   const dispatch = useDispatch();
   const navigate=useNavigate()
+  const { id } = useParams();
   const [modalShow, setModalShow] = useState(false);
-  const [questinsShow, setQuestinsShow] = useState(false);
   const [delAdminShow, setDelAdminShow] = useState(false);
-  const [categoryId, setCategoryId] = useState();
-  const [categoryData, setCategoryData] = useState('');
+  const [quesId, setQuesId] = useState();
+  const [quesData, setQuesData] = useState('');
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(10);
   const [pageCount, setPageCount] = useState();
   const [resultOffset, setResultOffset] = useState(0);
   const [searchedMembers, setSearchedMembers] = useState("");
-  const handleAdminDelete = (catId) => {
-    setCategoryId(catId);
+  const handleAdminDelete = (Id) => {
+    setQuesId(Id);
     setDelAdminShow(true);
   };
-  const handleUpdateCat = (catData) => {
-    setCategoryData(catData);
-    setModalShow(true);
-    setQuestinsShow(true)
+  const handleUpdateQuestion = (data) => {
+    setQuesData(data);
+    setModalShow(true)
   };
   useEffect(() => {
-    dispatch(getCategoryList())
+    // dispatch(getCategoryQuestion(id))
+    dispatch(getContestRanks(id))
   }, []);
 
   useEffect(() => {
@@ -40,14 +43,14 @@ const ManageCategory = () => {
   }, [searchedMembers, page]);
 
   useEffect(() => {
-    if (categoryList) {
-      setSearchedMembers(categoryList);
+    if (ranksList.rank) {
+      setSearchedMembers(ranksList.rank);
     }
-  }, [categoryList]);
+  }, [ranksList.rank]);
 
   useEffect(() => {
-    const newArr = categoryList?.filter((data) =>
-      data.title.toLowerCase().includes(search)
+    const newArr = ranksList.rank?.filter((data) =>
+      data.rank.toLowerCase().includes(search)
     );
     setSearchedMembers(newArr);
   }, [search]);
@@ -66,9 +69,9 @@ const ManageCategory = () => {
                 <div className="col-12">
                   <div className="page-title-box d-sm-flex align-items-center justify-content-between">
                     <div>
-                      <span className="small_text">Manage Category</span>
+                      <span className="small_text">Manage Ranks</span>
                       <h4 className="mb-sm-0 font-size-28">
-                      Category
+                      Ranks
                       </h4>
                     </div>
                     <div className="page-title-right">
@@ -96,39 +99,38 @@ const ManageCategory = () => {
                   </div>
                 </div>
               </div>
-              <CreateQuizModal
+              {/* <CreateQuizModal
                 show={modalShow}
                 onHide={() => setModalShow(false)}
-                questinsShow={questinsShow}
-                catId={categoryId}
-                categoryData={categoryData}
+                catId={id}
+                quesData={quesData}
               />
-               {categoryId && (
+              {quesId && (
                 <DeleteModal
                   show={delAdminShow}
                   onHide={() => setDelAdminShow(false)}
-                  categoryId={categoryId}
-                  modalName={'deleteCategory'}
+                  quesId={quesId}
+                  modalName={'deleteQuestion'}
                 />
-              )}
+              )} */}
               <div className="row">
                 <div className="col-xl-12">
                   <div className="members_tbl">
                     <div className="card">
                       <div className="card-body">
                         <div className="d-flex justify-content-between align-items-center flex-wrap mb-3 position-relative">
-                          <h4 className="title_text">Category</h4>
-                          <span>
+                          <h4 className="title_text">Contest: {ranksList?.name}</h4>
+                          {/* <span>
                             <Link>
                               <button
                                 type="button"
-                                onClick={() =>{setModalShow(true);setQuestinsShow(true);setCategoryData('')}}
+                                onClick={() => {setModalShow(true);setQuesData('')}}
                                 className="btn cre_new"
                               >
-                                Create Category
+                                Create Questions
                               </button>
                             </Link>
-                          </span>
+                          </span> */}
                         </div>
                         <div className="table-responsive table-defaut-design dealer-table-c">
                           <table
@@ -138,9 +140,8 @@ const ManageCategory = () => {
                             <thead>
                               <tr>
                                 <th>SR.NO.</th>
-                                <th>Icon</th>
-                                <th>Title</th>
-                                <th>Q-Count</th>
+                                <th>Rank</th>
+                                <th>Reward</th>
                                 <th>Actions</th>
                               </tr>
                             </thead>
@@ -148,18 +149,17 @@ const ManageCategory = () => {
                               {searchedMembers ? (
                                 searchedMembers
                                   ?.slice(resultOffset, resultOffset + page)
-                                  ?.map((category,i) => {
+                                  ?.map((que,i) => {
                                     return (
                                       <tr key={i}>
                                         <td>{i+1}</td>
-                                        <td><img height={50} width={50} alt={category?.title} src={category?.img} /></td>
-                                        <td>{category?.title}</td>
-                                        <td>{category?.questionCount}</td>
+                                        <td>{que?.rank}</td>
+                                        <td>{que?.reward}</td>
                                         <td>
                                           <button
                                             type="button"
                                             onClick={() =>
-                                              handleAdminDelete(category?._id)
+                                              handleAdminDelete(que?._id)
                                             }
                                             className="deleteBtn "
                                           >
@@ -168,22 +168,21 @@ const ManageCategory = () => {
                                           <button
                                             type="button"
                                             onClick={() =>
-                                              handleUpdateCat(category)
+                                              handleUpdateQuestion(que)
                                             }
                                             className="deleteBtn "
                                           >
                                             <i class="bx bx-edit"></i>
                                           </button>
-                                          <button
+                                          {/* <button
                                             type="button"
                                             onClick={() =>
-                                              {navigate(`/admin/manage-category/Questions/${category?._id}`);
-                                              setQuestinsShow(false)}
+                                              navigate('/manage-category/Questions/:id')
                                             }
                                             className="btn que_btn"
                                           >
-                                            Q
-                                          </button>
+                                            Block
+                                          </button> */}
                                         </td>
                                       </tr>
                                     );
@@ -196,7 +195,7 @@ const ManageCategory = () => {
                                     className="h-370"
                                   >
                                     <p className="no_content_table">
-                                      No Category yet
+                                      No Rank yet
                                     </p>
                                   </td>
                                 </tr>
@@ -229,4 +228,4 @@ const ManageCategory = () => {
   );
 };
 
-export default ManageCategory;
+export default ManageRank;

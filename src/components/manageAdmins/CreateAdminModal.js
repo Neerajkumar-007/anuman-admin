@@ -2,10 +2,8 @@
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import AddAdmin from "./AddAdmin";
-import AddRole from "./AddRole";
 
 const CreateAdminModal = (props) => {
-  const [AddUser, setAddUser] = useState(false);
   return (
     <Modal
       {...props}
@@ -14,11 +12,7 @@ const CreateAdminModal = (props) => {
       centered
       className="admin-popup"
     >
-      {AddUser ? (
-        <AddRole setAddUser={setAddUser} onHide={props.onHide}/>
-      ) : (
-        <AddAdmin setAddUser={setAddUser} onHide={props.onHide} userData={props.userData}/>
-      )}
+    <AddAdmin onHide={props.onHide} userData={props.userData}/>
     </Modal>
   );
 };

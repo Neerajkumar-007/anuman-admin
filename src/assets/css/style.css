@@ -6582,11 +6582,11 @@ li.sub-heading-ul a {
   font-size: 11px;
   line-height: 15px;
   color: #808080;
-  width: 75%;
+  width: 100%;
 }
-.add_btn{
+/* .add_btn{
   width: 20%;
-}
+} */
 .que_btn {
     background: #1b95bc;
     color: #fff;
@@ -6622,4 +6622,11 @@ li.sub-heading-ul a {
   font-size: 11px;
   line-height: 15px;
   color: #808080;
+}
+.bloked_user{
+  background-color: #e12626;
+}
+.submenu-dropdown.dropdown {
+  border: none;
+  padding: 10px;
 }

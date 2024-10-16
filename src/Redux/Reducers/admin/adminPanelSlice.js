@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  createAdmin, createCategory, createQuestion, createRole, deleteAdmins, deleteCategory, deleteQuestion, getAdmins, getCategoryList, getCategoryQuestion, getrolesList, updateAdmin,
+  createAdmin, createCategory, createQuestion, createRole, deleteAdmins, deleteCategory, deleteQuestion, blockRoles, getAdmins, getCategoryList, getCategoryQuestion, getContests, getDashboard, getrolesList, updateAdmin, updateCategory, updateQuestion, updateRole, createContest, getContestRanks,
 } from "../../Actions/admin/adminPanel";
 import { toast } from "react-toastify";
 export const toastSuccess = (err) => {
@@ -45,10 +45,15 @@ export const toastInfo = (msg) => {
 const initialState = {
   members: null,
   admins: [],
+  dashboardData:[],
   roles: [],
   categoryList: [],
   categoryData:null,
   categoryQuestions:null,
+  liveContest:[],
+  endedContest:[],
+  draftContest:[],
+  rankData:[],
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -83,8 +88,31 @@ const adminPanelSlice = createSlice({
         }
       })
       .addCase(updateAdmin.fulfilled, (state, { payload }) => {
+        if (payload.user) {
+          // state.admins
+      //     state.admins = state.admins.map((admin) =>
+      //     console.log(admin,"user")
+      // );
+          toastSuccess(payload.message);
+        }
+        if (!payload) {
+          toastError(payload.message);
+        }
+      })
+      .addCase(updateCategory.fulfilled, (state, { payload }) => {
         if (payload) {
-          state.admins=state.admins
+          // state.admins
+      //     state.admins = state.admins.map((admin) =>
+      //     console.log(admin,"user")
+      // );
+          toastSuccess(payload.message);
+        }
+        if (!payload) {
+          toastError(payload.message);
+        }
+      })
+      .addCase(updateQuestion.fulfilled, (state, { payload }) => {
+        if (payload) {
           toastSuccess(payload.message);
         }
         if (!payload) {
@@ -97,6 +125,28 @@ const adminPanelSlice = createSlice({
           toastSuccess(payload.message);
         }
         if (payload.status==400) {
+          toastError(payload.message);
+        }
+      })
+      .addCase(blockRoles.fulfilled, (state, { payload }) => {
+        if (payload) {
+          const newArr = state.roles
+          state.roles = newArr;
+          toastSuccess(payload.message);
+        }
+        if (!payload) {
+          toastError(payload.message);
+        }
+      })
+      .addCase(updateRole.fulfilled, (state, { payload }) => {
+        if (payload) {
+          // state.admins
+      //     state.admins = state.admins.map((admin) =>
+      //     console.log(admin,"user")
+      // );
+          toastSuccess(payload.message);
+        }
+        if (!payload) {
           toastError(payload.message);
         }
       })
@@ -171,6 +221,32 @@ const adminPanelSlice = createSlice({
         }
         if (payload.status==400) {
           toastError(payload.message);
+        }
+      })
+      .addCase(getDashboard.fulfilled, (state, { payload }) => {
+        if (payload) {
+          state.dashboardData = payload;
+        }
+      })
+      .addCase(getContests.fulfilled, (state, { payload }) => {
+        if (payload) {
+          state.liveContest = payload;
+          state.endedContest = payload;
+          state.draftContest = payload;
+        }
+      })
+      .addCase(createContest.fulfilled, (state, { payload }) => {
+        if (payload.data) {
+          state.liveContest.unshift(payload.data);
+          toastSuccess(payload.message);
+        }
+        if (!payload) {
+          toastError(payload.message);
+        }
+      })
+      .addCase(getContestRanks.fulfilled, (state, { payload }) => {
+        if (payload) {
+          state.rankData = payload.contest
         }
       })
   },

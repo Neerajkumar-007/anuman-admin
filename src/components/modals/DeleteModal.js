@@ -1,10 +1,11 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
-import { deleteAdmins, deleteCategory, deleteQuestion } from "../../Redux/Actions/admin/adminPanel";
+import { deleteAdmins, deleteCategory, deleteQuestion, blockRoles, getrolesList } from "../../Redux/Actions/admin/adminPanel";
 import { modalBody } from "./PopupData";
 
 const DeleteModal = (props) => {
+  console.log(props.userBlock,"props.userBlock");
   const dispatch = useDispatch();
   const handleClick = () => {
     switch (props.modalName) {
@@ -15,6 +16,17 @@ const DeleteModal = (props) => {
           }
         });
         break;
+        case "deleteRole":
+          dispatch(blockRoles({
+            id: props.roleId, 
+            data: { block: props.userBlock ? false : true }
+          })).then((res) => {
+            if (res) {
+              dispatch(getrolesList())
+              props.onHide()
+            }
+          });
+          break;
       case "deleteCategory":
         dispatch(deleteCategory(props.categoryId)).then((res) => {
           if (res?.payload?.user) {

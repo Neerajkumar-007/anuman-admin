@@ -15,6 +15,7 @@ const ManageQuestions = () => {
   const [modalShow, setModalShow] = useState(false);
   const [delAdminShow, setDelAdminShow] = useState(false);
   const [quesId, setQuesId] = useState();
+  const [quesData, setQuesData] = useState('');
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(10);
   const [pageCount, setPageCount] = useState();
@@ -24,7 +25,10 @@ const ManageQuestions = () => {
     setQuesId(Id);
     setDelAdminShow(true);
   };
-
+  const handleUpdateQuestion = (data) => {
+    setQuesData(data);
+    setModalShow(true)
+  };
   useEffect(() => {
     dispatch(getCategoryQuestion(id))
   }, []);
@@ -96,6 +100,7 @@ const ManageQuestions = () => {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 catId={id}
+                quesData={quesData}
               />
               {quesId && (
                 <DeleteModal
@@ -116,7 +121,7 @@ const ManageQuestions = () => {
                             <Link>
                               <button
                                 type="button"
-                                onClick={() => setModalShow(true)}
+                                onClick={() => {setModalShow(true);setQuesData('')}}
                                 className="btn cre_new"
                               >
                                 Create Questions
@@ -159,14 +164,14 @@ const ManageQuestions = () => {
                                           </button>
                                           <button
                                             type="button"
-                                            // onClick={() =>
-                                            //   handleAdminDelete(admin?._id)
-                                            // }
+                                            onClick={() =>
+                                              handleUpdateQuestion(que)
+                                            }
                                             className="deleteBtn "
                                           >
                                             <i class="bx bx-edit"></i>
                                           </button>
-                                          <button
+                                          {/* <button
                                             type="button"
                                             onClick={() =>
                                               navigate('/manage-category/Questions/:id')
@@ -174,7 +179,7 @@ const ManageQuestions = () => {
                                             className="btn que_btn"
                                           >
                                             Block
-                                          </button>
+                                          </button> */}
                                         </td>
                                       </tr>
                                     );

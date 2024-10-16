@@ -11,7 +11,7 @@ const CreateQuizModal = (props) => {
       centered
       className="admin-popup"
     >
-      {props.questinsShow ? <CreateCategory catId={props.catId} onHide={props.onHide}/> : <CreateQuestions onHide={props.onHide} catId={props.catId}/>}
+      {props.questinsShow ? <CreateCategory catId={props.catId} onHide={props.onHide} categoryData={props.categoryData}/> : <CreateQuestions onHide={props.onHide} catId={props.catId} quesData={props.quesData}/>}
     </Modal>
   );
 };
