@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import CreateAdminModal from "./CreateAdminModal";
 import { getAdmins, getContests } from "../../Redux/Actions/admin/adminPanel";
 import ReactPaginate from "react-paginate";
+import GoLiveModal from "../modals/golive/GoLiveModal";
 // import DeleteModal from "../modals/DeleteModal";
 
 const ContestDraft = () => {
@@ -14,6 +15,7 @@ const ContestDraft = () => {
     const [modalShow, setModalShow] = useState(false);
     const [delAdminShow, setDelAdminShow] = useState(false);
     const [userData, setUserData] = useState('');
+    const [contestId, setContestId] = useState('');
     const [adminId, setAdminId] = useState();
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(10);
@@ -24,9 +26,14 @@ const ContestDraft = () => {
       setAdminId(adminId);
       setDelAdminShow(true);
     };
-    const handleAdminUpdate = (admindata) => {
-      setUserData(admindata);
+    // const handleAdminUpdate = (admindata) => {
+    //   setUserData(admindata);
+    //   setModalShow(true);
+    // };
+    const handleGoLive = (id) => {
+      // setUserData(admindata);
       setModalShow(true);
+      setContestId(id)
     };
     useEffect(() => {
       dispatch(getContests({status:"draft"}));
@@ -163,35 +170,17 @@ const ContestDraft = () => {
                                           {contest?.status}
                                         </td>
                                         <td>
-                                          {contest?.status}
+                                          {contest?.rank?.length}
                                         </td>
                                         <td>
                                           <button
                                             type="button"
                                             onClick={() =>
-                                              handleAdminDelete(contest?._id)
-                                            }
-                                            className="deleteBtn "
-                                          >
-                                            <i className="bx bx-trash"></i>
-                                          </button>
-                                          <button
-                                            type="button"
-                                            onClick={() =>
-                                              handleAdminUpdate(contest)
-                                            }
-                                            className="deleteBtn "
-                                          >
-                                            <i className="bx bx-edit"></i>
-                                          </button>
-                                          <button
-                                            type="button"
-                                            onClick={() =>
-                                              navigate('/manage-category/Questions/:id')
+                                             handleGoLive(contest?._id)
                                             }
                                             className="btn que_btn"
                                           >
-                                            Block
+                                            Go live
                                           </button>
                                         </td>
                                       </tr>
@@ -234,6 +223,11 @@ const ContestDraft = () => {
           </div>
         </div>
       </div>
+      <GoLiveModal 
+       show={modalShow}
+       onHide={() => setModalShow(false)}
+       contestId={contestId}
+      />
    </Layout>
   )
 }

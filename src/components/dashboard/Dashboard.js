@@ -7,7 +7,6 @@ import SecondRow from "./SecondRow";
 
 export default function Dashboard() {
   const dashboardData = useSelector((state) => state.adminPanel.dashboardData);
-  console.log(dashboardData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDashboard());

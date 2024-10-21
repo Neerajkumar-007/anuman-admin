@@ -156,7 +156,7 @@ const ManageRank = () => {
                                         <td>{que?.rank}</td>
                                         <td>{que?.reward}</td>
                                         <td>
-                                          <button
+                                          {/* <button
                                             type="button"
                                             onClick={() =>
                                               handleAdminDelete(que?._id)
@@ -173,7 +173,7 @@ const ManageRank = () => {
                                             className="deleteBtn "
                                           >
                                             <i class="bx bx-edit"></i>
-                                          </button>
+                                          </button> */}
                                           {/* <button
                                             type="button"
                                             onClick={() =>

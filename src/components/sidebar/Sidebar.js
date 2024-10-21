@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 import { useState } from "react";
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const isHref = (pageStr, secondPageStr) => {
     if (
       window.location.href.split("/").includes(pageStr) ||
@@ -14,6 +15,10 @@ const Sidebar = () => {
   };
   const handleLogout = () => {
     window.sessionStorage.clear();
+  };
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
   };
   return (
     <div className="vertical-menu">
@@ -128,7 +133,7 @@ const Sidebar = () => {
                     isHref("roles") ? "waves-effect active" : "waves-effect"
                   }
                 >
-                   <i>
+                  <i>
                     <svg
                       width="22"
                       height="22"
@@ -184,7 +189,9 @@ const Sidebar = () => {
                 <Link
                   to="/admin/manage-category"
                   className={
-                    isHref("manage-category") ? "waves-effect active" : "waves-effect"
+                    isHref("manage-category")
+                      ? "waves-effect active"
+                      : "waves-effect"
                   }
                 >
                   <i className="">
@@ -244,8 +251,64 @@ const Sidebar = () => {
                   </span>
                 </Link>
               </li> */}
-             <li className="mm-active">
-      <Dropdown className="submenu-dropdown">
+              <li className={`mm-active ${isOpen ? "sub-open" : ""}`}>
+                <Link
+                  className={
+                    isHref("contest") ? "waves-effect active" : "waves-effect"
+                  }
+                  onClick={toggleDropdown}
+                >
+                  <i className="">
+                    <svg
+                      height="20"
+                      viewBox="0 0 24 24"
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20,8 L20,5 L18,5 L18,6 L16,6 L16,5 L8,5 L8,6 L6,6 L6,5 L4,5 L4,8 L20,8 Z M20,10 L4,10 L4,20 L20,20 L20,10 Z M18,3 L20,3 C21.1045695,3 22,3.8954305 22,5 L22,20 C22,21.1045695 21.1045695,22 20,22 L4,22 C2.8954305,22 2,21.1045695 2,20 L2,5 C2,3.8954305 2.8954305,3 4,3 L6,3 L6,2 L8,2 L8,3 L16,3 L16,2 L18,2 L18,3 Z"
+                        fill={isHref("contest") ? "#1B95BC" : "#a6b0cf"}
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    style={{
+                      color: isHref("contest") ? "#1B95BC" : "#a6b0cf",
+                      fontWeight: isHref("contest") ? "600" : "400",
+                    }}
+                    key="t-dashboards"
+                  >
+                    Contest
+                  </span>
+                </Link>
+                <ul className="custom-dropdown">
+                  <li>
+                    <Link
+                      to="/admin/contest/live"
+                      className={isHref("live") ? "active" : ""}
+                    >
+                      Live Contest
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/admin/contest/ended"
+                      className={isHref("ended") ? "active" : ""}
+                    >
+                      Ended Contest
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/admin/contest/draft"
+                      className={isHref("draft") ? "active" : ""}
+                    >
+                      Draft Contest
+                    </Link>
+                  </li>
+                </ul>
+                {/* <Dropdown className="submenu-dropdown">
         <Dropdown.Toggle
           variant="link"
           id="dropdown-basic"
@@ -305,8 +368,8 @@ const Sidebar = () => {
             Draft Contest
           </Dropdown.Item>
         </Dropdown.Menu>
-      </Dropdown>
-    </li>
+      </Dropdown> */}
+              </li>
               <li className="mm-active">
                 <Link
                   to="/admin/manageAdmins"

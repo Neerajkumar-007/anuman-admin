@@ -29,9 +29,9 @@ const CreateContest = (props) => {
     if (!values.entryFee) {
       errors.entryFee = "Required";
     }
-    if (!values.endTime) {
-      errors.endTime = "Required";
-    }
+    // if (!values.endTime) {
+    //   errors.endTime = "Required";
+    // }
     if (!values.users) {
       errors.users = "Required";
     }
@@ -51,7 +51,7 @@ const CreateContest = (props) => {
       categoryId: props.userData?.categoryId?.id || "",
       pricePool:"",
       entryFee:"",
-      endTime:"",
+      // endTime:"",
       users:"",
       max:"",
       min:""
@@ -181,7 +181,7 @@ const CreateContest = (props) => {
             ) : null}
           </div>
           <div className="form-group mb-3">
-          <label htmlFor="">Users</label>
+          <label htmlFor="">Rank Users</label>
             <input
               type="number"
               className="form-control"
@@ -195,8 +195,8 @@ const CreateContest = (props) => {
             ) : null}
           </div>
          </div>
-          <div className="d-flex justify-content-between">
-          <div className="form-group mb-3">
+          <div className="d-flex justify-content-around">
+          {/* <div className="form-group mb-3">
           <label htmlFor="">Set Time</label>
             <input
               type="number"
@@ -209,7 +209,7 @@ const CreateContest = (props) => {
             {formik.errors.endTime ? (
               <p className="formik-errors">{formik.errors.endTime}*</p>
             ) : null}
-          </div>
+          </div> */}
           <div className="form-group mb-3">
           <label htmlFor="">Maximum</label>
             <input

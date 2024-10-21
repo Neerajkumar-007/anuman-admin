@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { createCategory, updateCategory,getCategoryList } from "../../Redux/Actions/admin/adminPanel";
+import { createCategory, updateCategory } from "../../Redux/Actions/admin/adminPanel";
 
 const CreateCategory = ({ onHide, categoryData }) => {
   const dispatch = useDispatch();
@@ -44,7 +44,6 @@ const CreateCategory = ({ onHide, categoryData }) => {
           dispatch(updateCategory({id:categoryData._id, data:formData})).then((res) => {
             if (res.payload.category) {
               onHide();
-              dispatch(getCategoryList())
             }
           });
         } else {

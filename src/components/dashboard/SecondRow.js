@@ -53,7 +53,7 @@ const SecondRow = ({dashboardData}) => {
         <div className="card">
           <div className="card-body h160">
             <div className="d-flex justify-content-between align-items-center flex-wrap mb-3 position-relative">
-              <h4 className="title_text">Contest</h4>
+              <h4 className="title_text">Questions</h4>
             </div>
             <div className="row">
               <div className="col-md-12">

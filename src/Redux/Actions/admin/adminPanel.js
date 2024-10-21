@@ -119,3 +119,7 @@ export const getContestRanks = createAsyncThunk(
     return response.data;
   }
 );
+export const goLiveContest = createAsyncThunk("goLiveContest", async ({ id, data }, thunkApi) => {
+  const response = await api.post(`/contest/updateContestStatusLive?id=${id}`,data);
+  return response.data;
+});

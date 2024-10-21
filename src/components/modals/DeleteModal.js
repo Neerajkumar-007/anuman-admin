@@ -22,7 +22,6 @@ const DeleteModal = (props) => {
             data: { block: props.userBlock ? false : true }
           })).then((res) => {
             if (res) {
-              dispatch(getrolesList())
               props.onHide()
             }
           });
