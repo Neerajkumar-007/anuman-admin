@@ -18,8 +18,8 @@ const RoutesPage = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route  path="/admin" element={<PrivateRoute />}>
-          <Route path="dashboard" element={<Dashboard />} />
           <Route exact path="manageAdmins" element={<ManageAdmins />} />
           <Route exact path="manage-category" element={<ManageCategory />} />
           <Route exact path="roles" element={<ManageRoles />} />

@@ -1,7 +1,6 @@
 {
   "name": "simple",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@floating-ui/utils": "^0.2.8",
     "@mui/material": "^6.1.4",
@@ -28,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -142,7 +142,7 @@ const ManageRank = () => {
                                 <th>SR.NO.</th>
                                 <th>Rank</th>
                                 <th>Reward</th>
-                                <th>Actions</th>
+                                <th> </th>
                               </tr>
                             </thead>
                             <tbody className="td_color trans_table_fix_height">
@@ -156,33 +156,6 @@ const ManageRank = () => {
                                         <td>{que?.rank}</td>
                                         <td>{que?.reward}</td>
                                         <td>
-                                          {/* <button
-                                            type="button"
-                                            onClick={() =>
-                                              handleAdminDelete(que?._id)
-                                            }
-                                            className="deleteBtn "
-                                          >
-                                            <i class="bx bx-trash"></i>
-                                          </button>
-                                          <button
-                                            type="button"
-                                            onClick={() =>
-                                              handleUpdateQuestion(que)
-                                            }
-                                            className="deleteBtn "
-                                          >
-                                            <i class="bx bx-edit"></i>
-                                          </button> */}
-                                          {/* <button
-                                            type="button"
-                                            onClick={() =>
-                                              navigate('/manage-category/Questions/:id')
-                                            }
-                                            className="btn que_btn"
-                                          >
-                                            Block
-                                          </button> */}
                                         </td>
                                       </tr>
                                     );
