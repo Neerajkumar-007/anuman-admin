@@ -1,11 +1,10 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
-import { deleteAdmins, deleteCategory, deleteQuestion, blockRoles, getrolesList } from "../../Redux/Actions/admin/adminPanel";
+import { deleteAdmins, deleteCategory, deleteQuestion, blockRoles, getrolesList, cancelContest } from "../../Redux/Actions/admin/adminPanel";
 import { modalBody } from "./PopupData";
 
 const DeleteModal = (props) => {
-  console.log(props.userBlock,"props.userBlock");
   const dispatch = useDispatch();
   const handleClick = () => {
     switch (props.modalName) {
@@ -40,6 +39,13 @@ const DeleteModal = (props) => {
             }
           });
           break;
+          case "cancelContest":
+            dispatch(cancelContest(props.contestId)).then((res) => {
+              if (res?.payload) {
+                props.onHide()
+              }
+            });
+            break;
       }
     }
   return (

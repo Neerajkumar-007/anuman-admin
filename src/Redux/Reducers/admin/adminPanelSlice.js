@@ -21,6 +21,8 @@ import {
   createContest,
   getContestRanks,
   goLiveContest,
+  cancelContest,
+  canceledLive,
 } from "../../Actions/admin/adminPanel";
 import { toast } from "react-toastify";
 export const toastSuccess = (err) => {
@@ -273,6 +275,30 @@ const adminPanelSlice = createSlice({
             (data) => data._id != payload.contest._id
           );
           state.liveContest = newArr;
+          toastSuccess(payload.message);
+        }
+        if (!payload) {
+          toastError(payload.message);
+        }
+      })
+      .addCase(canceledLive.fulfilled, (state, { payload }) => {
+        if (payload) {
+          const newArr = state.liveContest.filter(
+            (data) => data._id != payload.contest._id
+          );
+          state.liveContest = newArr;
+          toastSuccess(payload.message);
+        }
+        if (!payload) {
+          toastError(payload.message);
+        }
+      })
+      .addCase(cancelContest.fulfilled, (state, { payload }) => {
+        if (payload) {
+          const updatedContest = state.liveContest.filter(
+            (data) => data._id != payload.contest._id
+          );
+          state.liveContest = updatedContest;
           toastSuccess(payload.message);
         }
         if (!payload) {

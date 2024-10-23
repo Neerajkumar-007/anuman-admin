@@ -141,7 +141,6 @@ const ContestEnded = () => {
                                 <th>Price Pool</th>
                                 <th>End Time</th>
                                 <th>Fee</th>
-                                <th>Status</th>
                                 <th>Rank</th>
                                 <th>Actions</th>
                               </tr>
@@ -159,9 +158,6 @@ const ContestEnded = () => {
                                         <td>{contest?.pricePool}</td>
                                         <td>{contest?.endTime}</td>
                                         <td>{contest?.entryFee}</td>
-                                        <td>
-                                          {contest?.status}
-                                        </td>
                                         <td>
                                           {contest?.status}
                                         </td>

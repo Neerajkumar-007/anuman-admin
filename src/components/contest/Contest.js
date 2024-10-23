@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAdmins, getContests } from "../../Redux/Actions/admin/adminPanel";
 import ReactPaginate from "react-paginate";
 import CreateContest from "./CreateContest";
+import DeleteModal from "../modals/DeleteModal";
 // import DeleteModal from "../modals/DeleteModal";
 
 const Contest = () => {
@@ -15,14 +16,14 @@ const Contest = () => {
     const [modalShow, setModalShow] = useState(false);
     const [delAdminShow, setDelAdminShow] = useState(false);
     const [userData, setUserData] = useState('');
-    const [adminId, setAdminId] = useState();
+    const [contestId, setContestId] = useState();
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(10);
     const [pageCount, setPageCount] = useState();
     const [resultOffset, setResultOffset] = useState(0);
     const [searchedMembers, setSearchedMembers] = useState("");
-    const handleAdminDelete = (adminId) => {
-      setAdminId(adminId);
+    const handleCancel = (Id) => {
+      setContestId(Id);
       setDelAdminShow(true);
     };
     const handleAdminUpdate = (admindata) => {
@@ -104,20 +105,14 @@ const Contest = () => {
                 onHide={() => setModalShow(false)}
                 userData={userData}
               />
-
-              {/* <CreateAdminModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                userData={userData}
-              />
-              {adminId && (
+              {contestId && (
                 <DeleteModal
                   show={delAdminShow}
                   onHide={() => setDelAdminShow(false)}
-                  adminId={adminId}
-                  modalName={'deleteAdmin'}
+                  contestId={contestId}
+                  modalName={'cancelContest'}
                 />
-              )} */}
+              )}
               <div className="row">
                 <div className="col-xl-12">
                   <div className="members_tbl">
@@ -149,7 +144,6 @@ const Contest = () => {
                                 <th>Price Pool</th>
                                 <th>End Time</th>
                                 <th>Fee</th>
-                                <th>Status</th>
                                 <th>Ranked User</th>
                                 <th>Actions</th>
                               </tr>
@@ -167,9 +161,6 @@ const Contest = () => {
                                         <td>{contest?.pricePool}</td>
                                         <td>{contest?.endTime}</td>
                                         <td>{contest?.entryFee}</td>
-                                        <td>
-                                          {contest?.status}
-                                        </td>
                                         <td>
                                           {contest?.rank.length}
                                         </td>
@@ -200,6 +191,16 @@ const Contest = () => {
                                             className="btn que_btn"
                                           >
                                             Rank
+                                          </button>
+                                          <button
+                                          style={{backgroundColor:"red"}}
+                                            type="button"
+                                            onClick={() =>
+                                              handleCancel(contest?._id)
+                                            }
+                                            className="btn que_btn"
+                                          >
+                                            Cancel
                                           </button>
                                         </td>
                                       </tr>

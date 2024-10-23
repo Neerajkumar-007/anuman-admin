@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import CancelContest from "../components/contest/CancelContest";
 import Contest from "../components/contest/Contest";
 import ContestDraft from "../components/contest/ContestDraft";
 import ContestEnded from "../components/contest/ContestEnded";
@@ -18,14 +19,15 @@ const RoutesPage = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route  path="/admin" element={<PrivateRoute />}>
+          <Route path="dashboard" element={<Dashboard />} />
           <Route exact path="manageAdmins" element={<ManageAdmins />} />
           <Route exact path="manage-category" element={<ManageCategory />} />
           <Route exact path="roles" element={<ManageRoles />} />
           <Route exact path="contest/live" element={<Contest />} />
           <Route exact path="contest/ended" element={<ContestEnded />} />
           <Route exact path="contest/draft" element={<ContestDraft />} />
+          <Route exact path="contest/canceled" element={<CancelContest />} />
           <Route exact path="manage-category/Questions/:id" element={<ManageQuestions />} />
           <Route exact path="/admin/contest/live/:id" element={<ManageRank />} />
           <Route exact path="member" element={<Member />} />

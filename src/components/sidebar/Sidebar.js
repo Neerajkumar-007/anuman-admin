@@ -307,6 +307,14 @@ const Sidebar = () => {
                       Draft Contest
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/admin/contest/canceled"
+                      className={isHref("canceled") ? "active" : ""}
+                    >
+                      Canceled Contest
+                    </Link>
+                  </li>
                 </ul>
                 {/* <Dropdown className="submenu-dropdown">
         <Dropdown.Toggle

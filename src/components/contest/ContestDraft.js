@@ -12,7 +12,7 @@ const ContestDraft = () => {
     const contest = useSelector((state) => state.adminPanel.liveContest);
     const dispatch = useDispatch();
     const navigate=useNavigate()
-    const [modalShow, setModalShow] = useState(false);
+    const [golive, setGolive] = useState(false);
     const [delAdminShow, setDelAdminShow] = useState(false);
     const [userData, setUserData] = useState('');
     const [contestId, setContestId] = useState('');
@@ -32,7 +32,7 @@ const ContestDraft = () => {
     // };
     const handleGoLive = (id) => {
       // setUserData(admindata);
-      setModalShow(true);
+      setGolive(true);
       setContestId(id)
     };
     useEffect(() => {
@@ -148,7 +148,6 @@ const ContestDraft = () => {
                                 <th>Price Pool</th>
                                 <th>End Time</th>
                                 <th>Fee</th>
-                                <th>Status</th>
                                 <th>Rank</th>
                                 <th>Actions</th>
                               </tr>
@@ -166,9 +165,6 @@ const ContestDraft = () => {
                                         <td>{contest?.pricePool}</td>
                                         <td>{contest?.endTime}</td>
                                         <td>{contest?.entryFee}</td>
-                                        <td>
-                                          {contest?.status}
-                                        </td>
                                         <td>
                                           {contest?.rank?.length}
                                         </td>
@@ -224,8 +220,8 @@ const ContestDraft = () => {
         </div>
       </div>
       <GoLiveModal 
-       show={modalShow}
-       onHide={() => setModalShow(false)}
+       show={golive}
+       onHide={() => setGolive(false)}
        contestId={contestId}
       />
    </Layout>

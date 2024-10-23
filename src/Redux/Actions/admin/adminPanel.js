@@ -123,3 +123,11 @@ export const goLiveContest = createAsyncThunk("goLiveContest", async ({ id, data
   const response = await api.post(`/contest/updateContestStatusLive?id=${id}`,data);
   return response.data;
 });
+export const cancelContest = createAsyncThunk("cancelContest", async (id, thunkApi) => {
+  const response = await api.post(`/contest/cancelContest?id=${id}`);
+  return response.data;
+});
+export const canceledLive = createAsyncThunk("canceledLive", async ({ id, data }, thunkApi) => {
+  const response = await api.post(`/contest/updateContestStatusLiveFromEndedCancel?id=${id}`,data);
+  return response.data;
+});
